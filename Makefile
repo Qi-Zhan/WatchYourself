@@ -19,6 +19,5 @@ clean:
 	rm -rf tests/__pycache__
 	rm -rf src/watchyourself/__pycache__
 	rm -rf dist
-	rm -rf watchyourself.egg-info
 	rm -rf src/watchyourself.egg-info
 	pip uninstall -y watchyourself

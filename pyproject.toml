@@ -1,11 +1,11 @@
 [project]
 name = "watchyourself"
 version = "0.0.1"
-description = "A project for watch yourself screen usage"
+description = "A tool for watching yourself screen usage"
 readme = "README.md"
 requires-python = ">=3.7"
 license = {file = "LICENSE.txt"}
-keywords = ["watch", "daily", "development"]
+keywords = ["watchyourself", "daily", "report"]
 
 authors = [
   {name = "Qi Zhan", email = "qizhan@zju.edu.cn" }
@@ -34,32 +34,19 @@ classifiers = [
 dependencies = [
 ]
 
-# List additional groups of dependencies here (e.g. development
-# dependencies). Users will be able to install these using the "extras"
-# syntax, for example:
-#
-#   $ pip install sampleproject[dev]
-#
-# Similar to `dependencies` above, these must be valid existing
-# projects.
-[project.optional-dependencies] # Optional
+[project.optional-dependencies]
 dev = ["check-manifest"]
 test = ["coverage"]
 
 [project.urls]
 "Homepage" = "https://github.com/Qi-Zhan/WatchYourself"
 "Bug Reports" = "https://github.com/Qi-Zhan/WatchYourself/issues"
-"Source" = "https://github.com/Qi-Zhan/WatchYoursel"
+"Source" = "https://github.com/Qi-Zhan/WatchYourself"
 
-# The following would provide a command line executable called `sample`
-# which executes the function `main` from this package when invoked.
-[project.scripts]  # Optional
-sample = "sample:main"
+[project.scripts]
+watchyourself = "watchyourself.watch:main"
+watchyourself_report = "watchyourself.report:main"
 
-[tool.setuptools]
-# If there are data files included in your packages that need to be
-# installed, specify them here.
-package-data = {"sample" = ["*.dat"]}
 
 [build-system]
 # These are the assumed default build requirements from pip:

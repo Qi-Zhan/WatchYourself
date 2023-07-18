@@ -20,6 +20,8 @@ class Inspect:
 
 
 def get_cursor(database: str, table: str):
+    # get file path
+    database = os.path.join(os.path.dirname(__file__), database)
     # if database does not exist, create it
     if not os.path.exists(database):
         conn = sqlite3.connect(database)
@@ -36,6 +38,7 @@ def get_cursor(database: str, table: str):
         c.execute(f"CREATE TABLE {table} (name text, window text, time text, category text)")  # noqa: E501
         conn.commit()
     return c, conn
+
 
 def get_inspects(cursor, table):
     cursor.execute(f"SELECT * FROM {table}")

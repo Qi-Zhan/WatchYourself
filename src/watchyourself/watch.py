@@ -37,7 +37,7 @@ def active_process_and_window():
         raise ValueError("OS not supported, please use Linux, Mac or Windows")
 
 
-def main(database: str, table: str):
+def main(database: str = "watchyourself.db", table: str = "watch"):
     cursor, conn = get_cursor(database, table)
     while True:
         sleep(1)

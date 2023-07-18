@@ -16,7 +16,7 @@ class Inspect:
         self.category = category
 
     def __str__(self):
-        return f"{self.time}: {self.name} - {self.window}"
+        return f"{self.time}: {self.name} ... {self.window}"
 
 
 def get_cursor(database: str, table: str):
@@ -36,3 +36,16 @@ def get_cursor(database: str, table: str):
         c.execute(f"CREATE TABLE {table} (name text, window text, time text, category text)")  # noqa: E501
         conn.commit()
     return c, conn
+
+def get_inspects(cursor, table):
+    cursor.execute(f"SELECT * FROM {table}")
+    data = cursor.fetchall()
+    inspect_objects = []
+    for row in data:
+        name = row[0]
+        window = row[1]
+        time = datetime.strptime(row[2], "%Y-%m-%d %H:%M:%S")
+        category = row[3]
+        inspect_object = Inspect(name, window, time, category)
+        inspect_objects.append(inspect_object)
+    return inspect_objects

@@ -3,7 +3,7 @@ from datetime import datetime
 from time import sleep
 import subprocess
 import os
-from util import get_cursor
+from .util import get_cursor
 
 os_name = os.uname().sysname
 
